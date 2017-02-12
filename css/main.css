@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+}
+
+body {
+    box-sizing: border-box;
+    background-size: cover;
+    background-image: url('../images/417325.jpg');
+}
+
+input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    color: #ffcc75;
+}
+
+.wrapper {
+    margin: 0 auto;
+    margin-top: 80px;
+    width: 1200px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 0px 0px 10px 0.3px rgba(255, 204, 117, 0.55);
+    -moz-box-shadow: 0px 0px 10px 0.3px rgba(255, 204, 117, 0.55);
+    box-shadow: 0px 0px 10px 0.3px rgba(255, 204, 117, 0.55);
+}
+
+.user-table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.user-table th {
+    text-align: justify;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.user-table th,
+td {
+    color: #ffcc75;
+    font-family: 'Tahoma';
+}
+
+.user-table td {
+    padding: 5px;
+}
+
+.user-table tr:first-child>th {
+    border-bottom: 1px solid rgba(255, 204, 75, 0.3);
+}
+
+.user-table tr:last-child > td {
+    border-top: 1px solid rgba(255, 204, 75, 0.3);
+}
+
+input[type=text] {
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px dotted rgba(255, 204, 75, 0.3);
+}
+
+.user-table td:first-child,
+.user-table th:first-child {
+    width: 40px;
+}
+
+.user-table th:nth-child(4),
+.user-table td:nth-child(4) {
+    width: 100px;
+}
+
+.user-table th:last-child,
+.user-table td:last-child {
+    width: 30px;
+    cursor: pointer;
+}
+
+.filter-container-div {
+    width: 100%;
+}
+
+.filter-container-div>input {
+    width: auto;
+}
