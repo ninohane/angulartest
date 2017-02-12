@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-sanitize.js"></script>
+        <script src="index.js"></script>
+        <link rel="stylesheet" href="./css/main.css" type="text/css" />
+</head>
+
+<body ng-app="userApp">
+    <div class="wrapper">
+        <div class="user-div" ng-controller="UserController">
+            <div class="filter-container-div">
+                <input type="text" ng-model="searchedText" placeholder="Search text..." />
+                <input type="text" ng-model="highlightedText" placeholder="Highlight Text..." />
+            </div>
+            <table class="user-table">
+                <tr>
+                    <th>#</th>
+                    <th ng-click="setOrderProp('name')">Name</th>
+                    <th ng-click="setOrderProp('surname')">Surname</th>
+                    <th ng-click="setOrderProp('age')">Age</th>
+                    <th ng-click="setOrderProp('email')">E-mail</th>
+                    <th></th>
+                </tr>
+                <tr ng-repeat="person in people.persondata | orderBy:orderProp | filter:searchedText">
+                    <td>{{$index + 1}}</td>
+                    <td ng-bind-html="person.name    | color:highlightedText "></td>
+                    <td ng-bind-html="person.surname | uppercase | color:highlightedText "></td>
+                    <td ng-bind-html="person.age     | color:highlightedText "></td>
+                    <td ng-bind-html="person.email   | lowercase  | color:highlightedText "></td>
+                    <td id="person-{{person.id}}" ng-click="deletePerson(person.id)">
+                        <span alt="Delete" title="Delete">X</span>
+                    </td>
+                </tr>
+                <tr ng-controller="NewUserController">
+                    <td>{{people.persondata.length}}</td>
+                    <td><input type="text" ng-model="newname" placeholder="Name"/></td>
+                    <td><input type="text" ng-model="newsurname" placeholder="Surname"/></td>
+                    <td><input type="text" ng-model="newage" placeholder="Age"/></td>
+                    <td><input type="text" ng-model="newemail" placeholder="E-mail"/></td>
+                    <td><span ng-click="addPerson(); loadData()" alt="Add" title="Add">+</span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
